@@ -30,4 +30,4 @@ volumes:
 
 networks:
   bq-network:
-    driver: bridge
+    driver: bridge    
