@@ -14,7 +14,7 @@ module.exports = {
       },
       orderId: {
         type: Sequelize.INTEGER,
-        references: {model:'orderitems', key:'id'}
+        references: {model:'orders', key:'id'}
       },
       options: {
         type: Sequelize.STRING
