@@ -1,6 +1,6 @@
 const database = require('../models');
 
-class itemServices {
+class orderItemServices {
   static async getOrderItems() {
     try {
       return await database.items.findAll()
@@ -64,4 +64,4 @@ class itemServices {
   }
 }
 
-module.exports = itemServices
+module.exports = orderItemServices

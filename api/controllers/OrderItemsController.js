@@ -1,12 +1,12 @@
-const itemServices = require('../../services/itemsService');
+const orderItemsService = require('../../services/orderItemsService');
 import Utils from '../Utils/Utils';
 
 const util = new Utils();
 
-class ItemsController {
+class OrderItemsController {
     static async getAllItems(res) {
       try {
-        const allItems = await itemServices.getAllItems()
+        const allItems = await orderItemsService.getAllItems()
         if (allItems.length > 0) {
           util.setSuccess(200, 'Items retrieved', allItems)
         } else {
@@ -26,7 +26,7 @@ class ItemsController {
       }
       const newItem = req.body
       try {
-        const createdItem = await itemServices.addItem(newItem)
+        const createdItem = await orderItemsService.addItem(newItem)
         util.setSuccess(201, 'Item Added!', createdItem)
         return util.send(res)
       } catch (error) {
@@ -42,7 +42,7 @@ class ItemsController {
         return util.send(res)
       }
       try {
-        const updateItem = await itemServices.updateItem(id, alteredItem)
+        const updateItem = await orderItemsService.updateItem(id, alteredItem)
         if (!updateItem) {
           util.setError(404, `Cannot find Item with the id: ${id}`)
         } else {
@@ -64,7 +64,7 @@ class ItemsController {
       }
   
       try {
-        const theItem = await itemServices.getItem(id)
+        const theItem = await orderItemsService.getItem(id)
   
         if (!theItem) {
           util.setError(404, `Cannot find Item with the id ${id}`)
@@ -87,7 +87,7 @@ class ItemsController {
       }
   
       try {
-        const ItemToDelete = await itemServices.deleteItem(id)
+        const ItemToDelete = await orderItemsService.deleteItem(id)
   
         if (ItemToDelete) {
           util.setSuccess(200, 'Item deleted')
@@ -102,4 +102,4 @@ class ItemsController {
     }
   }
   
-  export default ItemsController
+  export default OrderItemsController

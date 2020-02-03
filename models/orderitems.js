@@ -8,8 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     productExtraId: DataTypes.INTEGER
   }, {});
   orderItems.associate = function(models) {
-    orderItems.belongsTo(models.products)
-    // orderitems.belongsTo(models.orders)
+    // orderItems.belongsTo(models.products)
+    // orderItems.belongsTo(models.orders)
   };
   return orderItems;
 };
